@@ -17,12 +17,12 @@ const CartItem = ({ onContinueShopping }) => {
     return total.toFixed(2); // Return total with 2 decimal places
   };
 
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    if (onContinueShopping) {
-      onContinueShopping();
-    }
-  };
+  const handleContinueShopping = () => {
+  if (onContinueShopping) {
+    onContinueShopping();
+  }
+};
+
   const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
   };
@@ -36,7 +36,7 @@ const CartItem = ({ onContinueShopping }) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
     }
-  };@
+  };
 
   const handleRemove = (item) => {
     dispatch(removeItem(item.name));

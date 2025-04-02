@@ -1,22 +1,34 @@
 
 import React, { useState } from 'react';
 import ProductList from './ProductList';
+import CartItem from './CartItem';
+import { Provider } from 'react-redux';
+import store from './store';
 import './App.css';
 import AboutUs from './AboutUs';
 
 function App() {
   
   const [showProductList, setShowProductList] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
+    setShowCart(false);
   };
 
   const handleHomeClick = () => {
     setShowProductList(false);
+    setShowCart(true);
+  };
+
+  const handleContinueShopping = () => {
+    setShowProductList(true);
+    setShowCart(false);
   };
 
   return (
+    <Provider store={store}>
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
         <div className="background-image"></div>
@@ -39,7 +51,11 @@ function App() {
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
         <ProductList onHomeClick={handleHomeClick}/>
       </div>
+      <div className={`cart-container ${showCart ? 'visible' : ''}`}>
+        <CartItem onContinueShopping={handleContinueShopping}/>
+      </div>
     </div>
+    </Provider>
   );
 }
 
