@@ -18,10 +18,10 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleContinueShopping = () => {
-  if (onContinueShopping) {
-    onContinueShopping();
-  }
-};
+    if (onContinueShopping) {
+        onContinueShopping();
+    }
+  };
 
   const handleCheckoutShopping = () => {
     alert('Functionality to be added for future reference');
