@@ -12,17 +12,20 @@ function App() {
   const [showProductList, setShowProductList] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
-  const handleGetStartedClick = () => {
+  const handleGetStartedClick = (e) => {
+    if (e) e.preventDefault(); // Prevenir comportamiento por defecto si es necesario
     setShowProductList(true);
     setShowCart(false);
   };
 
-  const handleHomeClick = () => {
+  const handleHomeClick = (e) => {
+    if (e) e.preventDefault();
     setShowProductList(false);
     setShowCart(true);
   };
 
-  const handleContinueShopping = () => {
+  const handleContinueShopping = (e) => {
+    if (e) e.preventDefault();
     setShowProductList(true);
     setShowCart(false);
   };
